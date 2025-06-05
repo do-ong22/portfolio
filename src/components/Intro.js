@@ -127,7 +127,7 @@ function Intro() {
       </div>
       <img 
         ref={imageRef}
-        src="/images/KakaoTalk_Photo_2025-05-28-11-56-06.jpeg" 
+        src="./images/KakaoTalk_Photo_2025-05-28-11-56-06.jpeg" 
         alt="Profile Image" 
         style={tiltStyle}
         onMouseMove={handleMouseMove}
