@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "IBM Plex Mono", monospace;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  padding: 0 10vw;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* 전체 너비 사용 */
+  /* max-width: 1100px; 제거 */
+  /* margin: 0 auto; 제거 */
+}
+
+nav a {
+  color: white;
+  margin-left: 2rem;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #58a6ff, #3b82f6);
+  transition: width 0.4s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #2a2a2a, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease-in-out infinite;
+  color: white;
+  overflow-x: hidden;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px; /* 1000px에서 1100px로 증가 */
+  margin: 0 auto;
+}
+
+/* intro 섹션도 조정 */
+.intro {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6rem;
+  animation: fadeIn 2s ease-in;
+  position: relative;
+  perspective: 1000px;
+  max-width: 1000px; /* 900px에서 1000px로 증가 */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
+}
+
+/* 반응형 디자인 개선 */
+@media (max-width: 1200px) {
+  .App {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+  
+  .intro {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+.intro-text {
+  max-width: 60%;
+}
+
+.intro-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* .highlight 관련 모든 스타일 삭제됨 */
+
+.intro img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* 기존 코드 유지하고 아래 스타일 추가 */
+
+.typing-text {
+  display: inline-block;
+  min-width: 200px;
+  color: #58a6ff;
+  font-weight: 600;
+  position: relative;
+}
+
+.typing-text::after {
+  content: '|';
+  color: #58a6ff;
+  font-weight: normal;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* 반응형 디자인을 위한 추가 스타일 */
+@media (max-width: 768px) {
+  .typing-text {
+    min-width: 150px;
+  }
+}
+
+/* 프로필 이미지 3D 효과 - 사각형 스타일 */
+.profile-image-3d {
+  width: 280px;
+  height: 280px;
+  border-radius: 20px; /* 원형(50%)에서 둥근 모서리 사각형으로 변경 */
+  object-fit: cover;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.3); /* 깊이감을 위한 그림자 추가 */
+  flex-shrink: 0;
+  animation: profileGlow 3s ease-in-out infinite alternate;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* 기존 .intro img 스타일도 사각형으로 통일 */
+.intro img {
+  width: 280px;
+  height: 280px;
+  border-radius: 20px; /* 원형에서 둥근 모서리 사각형으로 변경 */
+  object-fit: cover;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.1),
+    0 0 60px rgba(255, 255, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  animation: profileGlow 3s ease-in-out infinite alternate;
+  transition: transform 0.3s ease;
+}
+
+/* 반응형 디자인 업데이트 */
+@media (max-width: 768px) {
+  .intro {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .intro img,
+  .profile-image-3d {
+    width: 250px;
+    height: 250px;
+    border-radius: 15px; /* 작은 화면에서는 모서리도 조금 더 작게 */
+  }
+}
+
+/* main content를 위한 새로운 래퍼 */
+.main-content {
+  flex: 1;
+}
+
+/* Footer 스타일 - sticky footer로 수정 */
+.footer {
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  color: #c9d1d9;
+  padding: 1.5rem 0 0.5rem 0;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.8rem; /* 전체적으로 폰트 크기 축소 */
+}
+
+.footer-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.footer-section h3 {
+  color: #58a6ff;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem; /* 1.1rem에서 0.9rem으로 축소 */
+  font-weight: 600;
+}
+
+.footer-section p {
+  margin-bottom: 0.3rem;
+  color: #8b949e;
+  font-size: 0.75rem; /* 폰트 크기 명시적으로 축소 */
+}
+
+.social-links,
+.quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.social-links a,
+.quick-links a {
+  color: #8b949e;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-bottom: 2px;
+  font-size: 0.75rem; /* 링크 폰트 크기 축소 */
+}
+
+.social-links a:hover,
+.quick-links a:hover {
+  color: #58a6ff;
+  transform: translateX(5px);
+}
+
+.social-links a::after,
+.quick-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #58a6ff;
+  transition: width 0.3s ease;
+}
+
+.social-links a:hover::after,
+.quick-links a:hover::after {
+  width: 100%;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 1rem 0 0.5rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #6e7681;
+  font-size: 0.7rem; /* 0.9rem에서 0.7rem으로 더 축소 */
+}
+
+/* 브랜드 링크 스타일 추가 */
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-link:hover {
+  text-decoration: none;
+}
+
+.brand-link h2 {
+  margin: 0;
+  color: #f0f6fc;
+  transition: all 0.3s ease;
+}
+
+.brand-link:hover h2 {
+  transform: scale(1.05);
+  background: linear-gradient(45deg, #58a6ff, #79c0ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* nav Link 스타일 (기존 nav a 스타일과 동일하게) */
+nav a, nav .nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav .nav-link:hover {
+  color: #58a6ff;
+}
+
+nav a::after, nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #58a6ff;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after, nav .nav-link:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .footer-section h3 {
+    font-size: 0.85rem; /* 모바일 헤딩 폰트 */
+  }
+    
+  .footer-section p,
+  .social-links a,
+  .quick-links a {
+    font-size: 0.7rem; /* 모바일 링크 폰트 */
+  }
+    
+  .footer-bottom {
+    font-size: 0.65rem; /* 모바일 하단 폰트 */
+  }
+}
