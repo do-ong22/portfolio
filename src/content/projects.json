@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "title": "Alpha-Finder (증권 데이터 서비스)",
+        "description": "FastAPI 기반으로 개발된 확장형 주식 데이터 서비스입니다. 지수/종목/재무정보 검색 및 실시간 데이터 수집 파이프라인을 구성했습니다.",
+        "image": "/images/알파파인더 메인화면.png",
+        "technologies": [
+            "Python",
+            "FastAPI",
+            "SQLAlchemy",
+            "Docker",
+            "Celery",
+            "OAuth2",
+            "Alembic",
+            "Pandas",
+            "NumPy",
+            "Swagger",
+            "Amazon S3"
+        ],
+        "myRole": "백엔드 전반 설계 및 개발, 데이터 수집 파이프라인 구축, API 설계 및 최적화",
+        "stackSummary": "FastAPI를 기반으로 전체 API 서버를 구성하고, Celery를 이용해 주기적인 지수·재무 데이터 수집을 자동화했습니다. Pandas, NumPy를 활용해 대량의 재무 데이터를 처리 및 최적화했습니다.",
+        "features": [
+            "KRX, Yahoo Finance 지수 데이터를 5분 간격으로 OHLVC 기준 수집",
+            "Celery 기반 배치 수집 자동화 및 Alembic 기반 테이블 관리",
+            "11,000개 이상의 한국/미국 종목에 대한 고속 검색 시스템 설계",
+            "조건 검색 필터 설계로 다양한 확장성 확보 (업종, 산업군, 상장일 등)",
+            "QueryParam 방식 → LIKE 기반으로 개선 (검색 속도 12초 → 2초)",
+            "손익계산서, 재무상태표 등 주요 재무지표 수집 및 시각화",
+            "15분 단위 Celery Batch로 재무데이터 가공 후 사전 캐싱 저장",
+            "Swagger 문서 자동 생성 및 프론트 연동 최적화",
+            "RESTful API 설계, 대용량 Pandas 기반 데이터 전처리 처리 로직 구현"
+        ],
+        "challenges": [
+            "Refinitiv API 호출 비용과 제한 문제로 인해 실시간 응답 대신 배치 기반 수집 구조로 전환",
+            "종목 검색 속도가 느려 QueryParam 기반 로직을 LIKE 기반 SQL 처리 방식으로 리팩토링",
+            "재무 데이터 응답 구조가 복잡하여 사전 계산 캐싱 구조를 도입"
+        ],
+        "outcome": [
+            "기존 12초 걸리던 종목 검색 → 2초로 단축",
+            "API 응답 속도 평균 18초 → 1초 이내로 개선",
+            "Quantus 사용자 대상 시범 제공으로 실사용 피드백 확보"
+        ],
+        "reflection": "처음부터 끝까지 전체 백엔드 파이프라인을 설계/구현하면서 기술뿐 아니라 구조화, 성능 튜닝, 프론트 협업까지 폭넓은 관점을 갖게 되었습니다. 특히 실시간보다는 배치 + 캐싱 기반 구조로 변경하면서 API 설계의 유연성과 성능 사이의 균형을 고민해볼 수 있는 좋은 경험이었습니다. Java 중심 개발자로 시작했으나, Python 기반 실무 경험을 통해 개발 언어는 도구일 뿐이라는 확신을 갖게 되었고, 새로운 언어에 대한 빠른 적응력과 실무 적용 경험을 확보할 수 있었습니다.",
+        "screenshots": [
+            "/images/알파파인더 종목 상세.png",
+            "/images/알파파인더 재무제표 1.png",
+            "/images/알파파인더 종목 개요.png",
+            "/images/알파파인더 실적.png",
+            "/images/알파파인더 관련 종목.png"
+        ],
+        "github": null,
+        "demo": "https://www.notion.so/1dc66880f3d981e7bcb5e8935687384b?pvs=21",
+        "date": "2024년 11월 ~ 2025년 1월",
+        "category": "AI/ML"
+        },
+    {
+      "id": 2,
+      "title": "Check (HDR 근태 관리 시스템)",
+      "description": "FastAPI 기반의 사내 HDR(연차/근태/초과근무) 자동화 시스템입니다. 수기 Notion 관리에서 벗어나 전사 적용 가능한 휴가 프로세스 시스템을 구축했습니다.",
+      "image": "/images/체크 메인 페이지.png",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "OAuth2",
+        "AWS RDS",
+        "Swagger",
+        "Jira"
+      ],
+      "myRole": "백엔드 전반 개발, 데이터 모델링, API 설계 및 배포",
+      "stackSummary": "FastAPI와 SQLAlchemy를 기반으로 유급/무급 연차 구분, 승인 로직, 자동 문서 발급 등의 기능을 설계하고, Notion 수기 데이터를 정규화된 DB로 마이그레이션했습니다.",
+      "features": [
+        "유급/무급 연차 구분 및 유연한 정책 대응 구조 설계",
+        "입사일/회계일 기준 연차 자동 지급 로직 구현 (Batch)",
+        "다단계 승인 및 모두싸인 연동 자동 문서 발급 처리",
+        "Excel/PDF 포맷으로 연차/근무내역 출력 기능 구현",
+        "정규화 모델 기반 고속 조회 쿼리 처리 구조 구성",
+        "Swagger 기반 API 문서 자동 생성",
+        "Notion 기반 이력 데이터 자동 마이그레이션"
+      ],
+      "challenges": [
+        "입사일 vs 회계일 기준 분기 처리 로직 설계",
+        "전자결재 연동 및 문서 발급 흐름 자동화 처리",
+        "Notion → 정규화 테이블 마이그레이션 자동화"
+      ],
+      "outcome": [
+        "기존 승인 시간 2~3일 → 1시간 이내 단축",
+        "연차 내역 PDF 자동 발급, 관리자 업무 자동화",
+        "실 사용 만족도 95% 이상, 전사적 적용 완료"
+      ],
+      "reflection": "실제 사내에서 실사용자가 있는 자동화 시스템을 개발하며, 정책 변화와 운영 환경에 유연하게 대응할 수 있는 API 구조 설계의 중요성을 체감했습니다. Python 비동기 구조와 FastAPI의 장점을 실무에 접목시키며 안정성과 확장성 있는 서비스를 구현할 수 있었습니다.",
+      "screenshots": [
+        "https://prod-files-secure.s3.us-west-2.amazonaws.com/c079b67e-3a12-4d8b-9a08-58b14af26099/a7a7fab4-3127-4b77-917e-04e73525bc04/%EC%B2%B4%ED%81%AC_%EC%97%B0%EC%B0%A8_%EC%84%A4%EC%A0%95.png",
+        "https://prod-files-secure.s3.us-west-2.amazonaws.com/c079b67e-3a12-4d8b-9a08-58b14af26099/109fc1a2-e3af-4b2a-9770-de9e6ed02566/%EC%B2%B4%ED%81%AC_%EC%97%B0%EC%B0%A8_%EC%8A%B9%EC%9D%B8_%EC%B7%A8%EC%86%8C.png",
+        "https://prod-files-secure.s3.us-west-2.amazonaws.com/c079b67e-3a12-4d8b-9a08-58b14af26099/d6f99a8a-f41b-4b2f-a98c-34a1f7ccde1b/%EC%B2%B4%ED%81%AC_%EC%97%B0%EC%B0%A8_%EC%84%A4%EC%A0%952.png",
+        "https://prod-files-secure.s3.us-west-2.amazonaws.com/c079b67e-3a12-4d8b-9a08-58b14af26099/0586ba67-57d9-4897-87fa-385474b878df/%EC%B2%B4%ED%81%AC_%EC%97%B0%EC%B0%A8_%EB%AC%B8%EC%84%9C_%EB%B0%9C%EA%B8%89.png",
+        "https://prod-files-secure.s3.us-west-2.amazonaws.com/c079b67e-3a12-4d8b-9a08-58b14af26099/3cc9e16d-abeb-4bda-905c-87aa2aece7a1/%EC%B2%B4%ED%81%AC_%EC%97%B0%EC%B0%A8_%EA%B4%80%EB%A6%AC.png"
+      ],
+      "github": null,
+      "demo": null,
+      "date": "2024년 10월 ~ 2025년 1월",
+      "category": "백오피스 시스템"
+    }
+]

@@ -1,0 +1,168 @@
+.projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.projects-header h1 {
+  font-size: 2.5rem;
+  color: #58a6ff;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.projects-header p {
+  color: #8b949e;
+  font-size: 1.1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  perspective: 1000px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 스태거드 애니메이션 */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+.project-card:nth-child(6) { animation-delay: 0.6s; }
+
+.project-card-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.6s ease forwards;
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 1rem;
+  }
+  
+  .projects-header h1 {
+    font-size: 2rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .projects-header p {
+    font-size: 1rem;
+  }
+}
+
+/* 기존 CSS 뒤에 추가 */
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(52, 152, 219, 0.2));
+  color: #c9d1d9;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(52, 152, 219, 0.3));
+  border-color: rgba(52, 152, 219, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  border-color: #3498db;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.project-card-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInUp 0.6s ease forwards;
+}
+
+@keyframes slideInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.no-projects {
+  text-align: center;
+  padding: 3rem;
+  color: #8b949e;
+  font-size: 1.1rem;
+}
+
+/* 반응형 카테고리 필터 */
+@media (max-width: 768px) {
+  .category-filter {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* 모달이 열릴 때 다른 카드들 숨기기 */
+body.modal-open .project-card:not(.modal-active) {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+body.modal-open .project-card.modal-active {
+  z-index: 999998;
+}

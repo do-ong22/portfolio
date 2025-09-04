@@ -1,0 +1,471 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8); /* 어두운 배경으로 변경 */
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+.modal-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); /* 어두운 그라데이션 배경 */
+  border-radius: 20px;
+  max-width: 800px;
+  width: 85vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+  z-index: 100000;
+  animation: slideUp 0.3s ease-out;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* 미세한 테두리 */
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 100001; /* 가장 높게 */
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-content {
+  padding: 40px;
+}
+
+.modal-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.modal-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title-section h2 {
+  font-size: 2.5rem;
+  color: #ffffff; /* 흰색 텍스트 */
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.modal-date {
+  color: #b8c5d6; /* 밝은 회색 */
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.modal-body section {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 반투명 테두리 */
+  padding-bottom: 30px;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05); /* 미세한 배경 */
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body h3 {
+  font-size: 1.5rem;
+  color: #ffffff; /* 흰색 텍스트 */
+  margin-bottom: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-description-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #e0e6ed; /* 밝은 회색 */
+}
+
+.modal-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.modal-tech-tag {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.modal-features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-features-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.1rem;
+  color: #e0e6ed; /* 밝은 회색 */
+  position: relative;
+  padding-left: 30px;
+}
+
+.modal-features-list li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4fc3f7; /* 밝은 파란색 */
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.modal-features-list li:last-child {
+  border-bottom: none;
+}
+
+.modal-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.modal-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.modal-link.github {
+  background: linear-gradient(135deg, #333 0%, #555 100%);
+  color: white;
+}
+
+.modal-link.demo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.modal-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 반응형 디자인 개선 */
+@media (max-width: 1024px) {
+  .modal-container {
+    width: 80vw; /* 95vw에서 90vw로 */
+    max-height: 90vh;
+    margin: 0;
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-container {
+    width: 90vw; /* 98vw에서 95vw로 */
+    max-height: 95vh;
+    margin: 0;
+    border-radius: 15px;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: 200px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .modal-title-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .modal-links {
+    flex-direction: column;
+  }
+  
+  .modal-link {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .modal-body {
+    gap: 25px;
+  }
+  
+  .modal-body section {
+    padding-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-container {
+    width: 98vw;
+    max-height: 98vh;
+    margin: 1vh 1vw;
+    border-radius: 15px;
+  }
+  
+  .modal-content {
+    padding: 15px;
+  }
+  
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  .modal-title-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modal-body h3 {
+    font-size: 1.3rem;
+  }
+  
+  .modal-tech-tags {
+    gap: 8px;
+  }
+  
+  .modal-tech-tag {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .modal-features-list li {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+  
+  .modal-link {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* 카테고리 스타일 */
+.modal-category {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* 섹션별 스타일링 개선 */
+.modal-body section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* 도전 과제 스타일 */
+.modal-challenges-list {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-challenges-list li {
+  background: rgba(255, 193, 7, 0.15);
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  color: #f8f9fa;
+  line-height: 1.6;
+}
+
+/* 성과 스타일 */
+.modal-outcome-list {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-outcome-list li {
+  background: rgba(40, 167, 69, 0.15);
+  border-left: 4px solid #28a745;
+  padding: 1rem 1rem 1rem 3rem; /* 왼쪽 패딩을 늘려서 체크 이모지 공간 확보 */
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  color: #f8f9fa;
+  line-height: 1.6;
+  position: relative;
+}
+
+.modal-outcome-list li::before {
+  content: '✅';
+  position: absolute;
+  left: 1rem; /* -20px에서 1rem으로 변경하여 박스 안쪽으로 이동 */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+}
+
+/* 회고 섹션 스타일 */
+.modal-reflection-section {
+  background: linear-gradient(135deg, rgba(108, 117, 125, 0.15) 0%, rgba(52, 58, 64, 0.15) 100%);
+  border: 1px solid rgba(108, 117, 125, 0.3);
+}
+
+.modal-reflection-section p {
+  font-style: italic;
+  color: #f8f9fa;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* 스크린샷 그리드 */
+.modal-screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.screenshot-item {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.screenshot-item:hover {
+  transform: scale(1.05);
+}
+
+.screenshot-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* 역할 및 스택 요약 스타일 */
+.modal-role-section,
+.modal-stack-section {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.15) 0%, rgba(102, 126, 234, 0.15) 100%);
+  border: 1px solid rgba(13, 110, 253, 0.3);
+}
+
+.modal-role-section p,
+.modal-stack-section p {
+  color: #e3f2fd;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* 반응형 디자인 개선 */
+@media (max-width: 768px) {
+  .modal-screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-body section {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modal-body h3 {
+    font-size: 1.1rem;
+  }
+  
+  .modal-challenges-list li,
+  .modal-outcome-list li {
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem; /* 모바일에서도 왼쪽 패딩 조정 */
+    font-size: 0.9rem;
+  }
+  
+  .modal-outcome-list li::before {
+    left: 0.8rem; /* 모바일에서 체크 이모지 위치 조정 */
+    font-size: 1rem;
+  }
+}

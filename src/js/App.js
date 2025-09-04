@@ -1,10 +1,11 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from '../components/Header';
-import Intro from '../components/Intro';
-import Blog from '../components/Blog';
-import Footer from '../components/Footer';
-import '../css/App.css';
+import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "../components/Header";
+import Intro from "../components/Intro";
+import Blog from "../components/Blog";
+import Projects from "../components/Projects"; 
+import Footer from "../components/Footer";
+import "../css/App.css";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Intro />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/projects" element={<Projects />} /> {/* 새로 추가 */}
           </Routes>
         </div>
         <Footer />
